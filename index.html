@@ -80,44 +80,21 @@ header{
 }
 
 .card{
-    background:white;
+    background:linear-gradient(White);
     padding:18px;
-    margin:15px 0;
+    margin:12px 0;
     border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card h3{
-    margin:0;
-    color:#111827;
-}
-
-.card p{
-    color:#4b5563;
-}
-
-.card small{
-    color:#9ca3af;
-}
+    box-shadow:0 3px 10px rgba(0,0,0,0.08);
 }
 
 .btn{
     display:inline-block;
-    margin-top:10px;
-    padding:8px 14px;
+    margin-top:8px;
+    padding:7px 12px;
     background:#111827;
     color:white;
     border-radius:8px;
     text-decoration:none;
-}
-
-.btn:hover{
-    background:#22c55e;
 }
 .footer{
     background:#111827;
@@ -219,63 +196,7 @@ header{
     100%{ transform: translateX(-100%); }
 
 }
-.hero{
-    text-align:center;
-    padding:40px 20px;
-    background:linear-gradient(135deg,#111827,#1f2937);
-    color:white;
-}
 
-.hero h1{
-    margin-bottom:10px;
-    font-size:28px;
-}
-
-.hero p{
-    color:#d1d5db;
-}
-
-.hero-buttons a{
-    display:inline-block;
-    margin:10px;
-    padding:10px 15px;
-    background:#22c55e;
-    color:white;
-    border-radius:8px;
-    text-decoration:none;
-}
-  .categories{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin:20px;
-}
-
-.cat-card{
-    background:white;
-    padding:15px 20px;
-    border-radius:10px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.08);
-    text-decoration:none;
-    color:#111827;
-    font-weight:bold;
-}
-
-.cat-card:hover{
-    background:#22c55e;
-    color:white;
-}
-  @media(max-width:768px){
-    .hero h1{
-        font-size:22px;
-    }
-
-    .categories{
-        flex-direction:column;
-        align-items:center;
-    }
-}
 </style>
 </head>
 
@@ -283,23 +204,12 @@ header{
  <nav class="navbar">
   <h2>Vijay Job Portal</h2>
 
-  <section class="hero">
-  <h1>Find Latest Government Jobs in India 🇮🇳</h1>
-  <p>Daily updates for 10th Pass, 12th Pass & Graduate Jobs</p>
-
-  <div class="hero-buttons">
-    <a href="10th-pass-jobs.html">10th Pass Jobs</a>
-    <a href="12th-pass-jobs.html">12th Pass Jobs</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="10th-pass-jobs.html">10th Jobs</a>
+    <a href="12th-pass-jobs.html">12th Jobs</a>
     <a href="latest-jobs.html">Latest Jobs</a>
   </div>
-   <div class="categories">
-
-  <a href="10th-pass-jobs.html" class="cat-card">🎓 10th Pass Jobs</a>
-  <a href="12th-pass-jobs.html" class="cat-card">📘 12th Pass Jobs</a>
-  <a href="latest-jobs.html" class="cat-card">🔥 Latest Jobs</a>
-
-</div> 
-</section>
 </nav>
 <header>
 <h1>Latest Government Job Updates in India</h1>
@@ -389,14 +299,15 @@ function renderJobs(jobs){
         : "";
 
         html += `
-<div class="card">
-    <h3>🔥 ${job.title}</h3>
-    <p>${job.desc}</p>
-    <small>${job.date}</small><br>
-    <a class="btn" href="${job.link}" target="_blank">Apply</a>
-    ${pdfButton}
-</div>
-`;    });
+        <div class="card">
+            <h3>${job.title}</h3>
+            <p>${job.desc}</p>
+            <small>${job.date}</small><br>
+            <a class="btn" href="${job.link}" target="_blank">Apply</a>
+            ${pdfButton}
+        </div>
+        `;
+    });
 
     document.getElementById("jobs").innerHTML = html;
 }
