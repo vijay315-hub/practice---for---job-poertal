@@ -58,6 +58,8 @@ header{
     color:White;
     padding:25px;
     text-align:center;
+    width:100%;
+    box-sizing:border-box;  
 }
 
 /* SEARCH */
@@ -75,9 +77,9 @@ header{
 
 /* CARD */
 .container{
-    width:90%;
+     width:90%;
     max-width:900px;
-    margin:auto;
+    margin:20px auto;   /* 🔥 THIS FIXES CENTER */
 }
 
 .card{
@@ -268,7 +270,13 @@ header{
   html, body{
     overflow-x: hidden;
 }
-
+.btn-section{
+    display:flex;
+    justify-content:center;   /* 🔥 centers horizontally */
+    flex-wrap:wrap;
+    gap:10px;
+    margin:20px auto;
+}
 </style>
 </head>
 
@@ -298,11 +306,11 @@ header{
   </div>
 </div> 
 </header>
- <div style="text-align:center; margin:15px;">
+ <<div class="btn-section">
   <a class="btn" href="10th-pass-jobs.html">10th Pass Jobs</a>
   <a class="btn" href="12th-pass-jobs.html">12th Pass Jobs</a>
   <a class="btn" href="latest-jobs.html">Latest Jobs</a>
-</div> 
+</div>
 
 <div class="search-box">
 <input type="text" id="search" placeholder="Search jobs...">
