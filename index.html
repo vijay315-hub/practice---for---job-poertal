@@ -57,6 +57,7 @@ html, body{
     font-family: Arial, sans-serif;
 }
 
+
 /* HEADER */
 header{
     background:#111827;
@@ -386,7 +387,7 @@ function renderJobs(jobs){
 
     let html = "";
 
-    jobs.forEach((job => {
+    jobs.forEach(job => {
 
         let pdfButton = job.pdf 
         ? `<a class="btn" href="${job.pdf}" target="_blank">View PDF</a>`
