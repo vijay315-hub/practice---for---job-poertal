@@ -74,10 +74,11 @@ header{
 
 /* CARD */
 .container{
-    width:90%;
-    max-width:850px;
+    width:100%;
+    max-width:1100px;   /* increase for desktop */
     margin:auto;
-    overflow:hidden;
+    padding:0 15px;
+    box-sizing:border-box;
 }
 
 .card{
@@ -264,11 +265,23 @@ header{
         margin:8px 0;
         padding:8px 0;
     }
-html, body{
-    overflow-x: hidden;
+  html, body{
+    margin:0;
+    padding:0;
+    width:100%;
+    overflow-x:hidden;
 }
 }
-
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+  .container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+}
 </style>
 </head>
 
@@ -299,7 +312,7 @@ html, body{
   </div>
 </div> 
 </header>
- <div style="text-align:center; margin:15px;">
+ <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin:15px;">
   <a class="btn" href="10th-pass-jobs.html">10th Pass Jobs</a>
   <a class="btn" href="12th-pass-jobs.html">12th Pass Jobs</a>
   <a class="btn" href="latest-jobs.html">Latest Jobs</a>
