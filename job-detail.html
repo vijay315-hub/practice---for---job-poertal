@@ -127,7 +127,23 @@ header{
 .detail-box ul,
 .detail-box ol{
     padding-left:20px;
-}    
+} 
+ .btn{
+    display:inline-block;
+    margin-top:10px;
+    margin-right:10px;
+    padding:10px 16px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#1e40af;
+}   
 </style>
 </head>
 
@@ -223,12 +239,15 @@ fetch(sheetURL)
 
 <h3>Important Links</h3>
 
-<a class="btn" href="${link}" target="_blank">Apply Now</a>
+<a class="btn" href="${link || '#'}" target="_blank">
+🚀 Apply Now
+</a>
 
-<a class="btn" href="${pdf}" target="_blank">View PDF</a>
+<a class="btn" href="${pdf || '#'}" target="_blank">
+📄 Download PDF
+</a>
 
 </div>
-
 `;
 })
 .catch(err => {
