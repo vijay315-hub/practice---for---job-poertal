@@ -166,7 +166,11 @@ fetch(sheetURL)
     let link = cols[2] || "#";
     let date = cols[3] || "";
     let pdf  = cols[4] || "#";
-
+    let edu = cols[5] || "Not Mentioned";
+    let age = cols[6] || "Not Mentioned";
+    let salary = cols[7] || "Not Mentioned";
+    let location = cols[8] || "India";
+ 
     document.getElementById("jobDetail").innerHTML = `
 
 <h2>${title}</h2>
@@ -177,13 +181,13 @@ fetch(sheetURL)
 
 <h3>Job Overview</h3>
 
-<p><b>📚 Education:</b> 12th Pass / Graduate</p>
+<p><b>📚 Education:</b> ${edu}</p>
 
-<p><b>🎂 Age Limit:</b> 18-30 Years</p>
+<p><b>🎂 Age Limit:</b> ${age}</p>
 
-<p><b>💰 Salary:</b> ₹25,000 - ₹45,000</p>
+<p><b>💰 Salary:</b> ${salary}</p>
 
-<p><b>📍 Location:</b> India</p>
+<p><b>📍 Location:</b> ${location}</p>
 
 <p><b>📅 Date:</b> ${date}</p>
 
