@@ -110,6 +110,24 @@ header{
 .back-btn:hover{
     background:#22c55e;
 }
+.detail-box{
+    background:#1f2937;
+    padding:20px;
+    margin-top:20px;
+    border-radius:12px;
+    color:#d1d5db;
+    line-height:1.8;
+}
+
+.detail-box h3{
+    color:white;
+    margin-bottom:10px;
+}
+
+.detail-box ul,
+.detail-box ol{
+    padding-left:20px;
+}    
 </style>
 </head>
 
@@ -150,16 +168,63 @@ fetch(sheetURL)
     let pdf  = cols[4] || "#";
 
     document.getElementById("jobDetail").innerHTML = `
-    <div class="card">
-        <h2>${title}</h2>
 
-        <p>${desc}</p>
+<h2>${title}</h2>
 
-        <div class="date">Last Date: ${date}</div><br>
+<p>${desc}</p>
 
-        <a class="btn apply-btn" href="${link}" target="_blank">🚀 Apply Now</a>
-        <a class="btn pdf-btn" href="${pdf}" target="_blank">📄 View PDF</a>
-    </div>
+<div class="detail-box">
+
+<h3>Job Overview</h3>
+
+<p><b>📚 Education:</b> 12th Pass / Graduate</p>
+
+<p><b>🎂 Age Limit:</b> 18-30 Years</p>
+
+<p><b>💰 Salary:</b> ₹25,000 - ₹45,000</p>
+
+<p><b>📍 Location:</b> India</p>
+
+<p><b>📅 Date:</b> ${date}</p>
+
+</div>
+
+<div class="detail-box">
+
+<h3>Selection Process</h3>
+
+<ul>
+<li>Written Exam</li>
+<li>Document Verification</li>
+<li>Medical Test</li>
+</ul>
+
+</div>
+
+<div class="detail-box">
+
+<h3>How To Apply</h3>
+
+<ol>
+<li>Read official notification carefully</li>
+<li>Click Apply Now button</li>
+<li>Fill online form</li>
+<li>Upload required documents</li>
+<li>Submit form before last date</li>
+</ol>
+
+</div>
+
+<div class="detail-box">
+
+<h3>Important Links</h3>
+
+<a class="btn" href="${link}" target="_blank">Apply Now</a>
+
+<a class="btn" href="${pdf}" target="_blank">View PDF</a>
+
+</div>
+
 `;
 })
 .catch(err => {
