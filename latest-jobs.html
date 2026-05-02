@@ -101,6 +101,9 @@ Our website helps job seekers quickly access official job notifications, eligibi
 New government job notifications are added regularly.</p>
 
 </section>
+# Replace ONLY your `<script>` section with this full working code
+
+```html
 <script>
 
 const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQE0orW_Uem5Vi736r-rSdwHKpJLmCmHh9IhVjIs2au5nnhMjhWv8Pp1X-yKHRlo-LhHuzHc9dgHPSH/pub?output=csv";
@@ -110,61 +113,53 @@ fetch(sheetURL)
 .then(data => {
 
     let rows = data.trim().split("\n").slice(1);
+
     let html = "";
 
-    // latest first
+    rows.forEach((row, index) => {
 
-
-    rows.forEach((row, index) =>  {
-
-        let cols = row.split(",");
+        let cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 
         let title = cols[0] || "";
         let desc = cols[1] || "";
-        let link = cols[2] || "";
+        let link = cols[2] || "#";
         let date = cols[3] || "";
-        let pdf  = cols[4] || "";
-        let edu = cols[5] || "Not Mentioned";
-        let age = cols[6] || "Not Mentioned";
-        let salary = cols[7] || "Not Mentioned";
-        let location = cols[8] || "India";
+        let pdf  = cols[4] || "#";
 
-        let pdfBtn = pdf ? `<a class="btn" href="${pdf}" target="_blank">PDF</a>` : "";
+        html += `
+        <div class="card">
 
-      html += `
-<div class="card">
+            <h3>${title}</h3>
 
-<h3>${title}</h3>
+            <p>${desc}</p>
 
-<p>${desc}</p>
+            <small>${date}</small><br>
 
-<small>${date}</small><br>
+            <a class="btn"
+            href="job-detail.html?id=${index}">
+            🔍 View Details
+            </a>
 
-<a class="btn"
-href="job-detail.html?id=${index}">
-🔍 View Details
-</a>
+            <a class="btn"
+            href="${link}"
+            target="_blank">
+            🚀 Apply
+            </a>
 
-<a class="btn"
-href="${link}"
-target="_blank">
-🚀 Apply
-</a>
+            <a class="btn"
+            href="${pdf}"
+            target="_blank">
+            📄 PDF
+            </a>
 
-<a class="btn"
-href="${pdf}"
-target="_blank">
-📄 PDF
-</a>
+            <a class="btn"
+            href="https://wa.me/?text=${encodeURIComponent(title + ' ' + link)}"
+            target="_blank">
+            📤 Share
+            </a>
 
-<a class="btn"
-href="https://wa.me/?text=${encodeURIComponent(title + ' ' + link)}"
-target="_blank">
-📤 Share
-</a>
-
-</div>
-`;
+        </div>
+        `;
 
     });
 
@@ -177,6 +172,37 @@ target="_blank">
 });
 
 </script>
+```
+
+# VERY IMPORTANT
+
+Delete this line completely if you still have it:
+
+```javascript
+rows.reverse();
+```
+
+# AFTER SAVING
+
+1. Commit changes
+2. Wait 1 minute
+3. Open website
+4. Press:
+
+```text
+Ctrl + Shift + R
+```
+
+# TEST
+
+Open:
+
+```text
+job-detail.html?id=0
+```
+
+If it opens correctly, all buttons will work.
+
 
 </body>
 </html>
