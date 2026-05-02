@@ -113,8 +113,7 @@ fetch(sheetURL)
     let rows = data.trim().split("\n").slice(1);
 
     let html = "";
-    rows.reverse();
-    rows.forEach((row, index) => {
+         [...rows].reverse().forEach((row, index) => {
 
         let cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 
@@ -134,7 +133,7 @@ fetch(sheetURL)
             <small>${date}</small><br>
 
             <a class="btn"
-            href="job-detail.html?id=${index}">
+            href="job-detail.html?id=${rows.length - 1 - index}"
             🔍 View Details
             </a>
 
