@@ -113,7 +113,7 @@ fetch(sheetURL)
     let rows = data.trim().split("\n").slice(1);
 
     let html = "";
-
+    rows.reverse();
     rows.forEach((row, index) => {
 
         let cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
