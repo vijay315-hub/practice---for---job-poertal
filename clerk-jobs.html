@@ -133,7 +133,7 @@ fetch(sheetURL)
     let rows = data.trim().split("\n").slice(1);
     let html = "";
 
-    rows.forEach(row => {
+   [...rows].reverse().forEach((row, index) => {
 
         // ✅ SAFE CSV SPLIT
         let col = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
