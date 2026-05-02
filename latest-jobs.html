@@ -111,7 +111,8 @@ fetch(sheetURL)
     let rows = data.trim().split("\n").slice(1);
 
     let html = "";
-         [...rows].reverse().forEach((row, index) => {
+
+    [...rows].reverse().forEach((row, index) => {
 
         let cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
 
@@ -131,13 +132,27 @@ fetch(sheetURL)
             <small>${date}</small><br>
 
             <a class="btn"
-            <a class="btn" href="job-detail.html?id=${index}">🔍 View Details</a>>
+            href="job-detail.html?id=${rows.length - 1 - index}"
+            🔍 View Details
+            </a>
 
-            <a class="btn" href="${link}" target="_blank">🚀 Apply</a>
+            <a class="btn"
+            href="${link}"
+            target="_blank">
+            🚀 Apply
+            </a>
 
-           <a class="btn" href="${pdf}" target="_blank">📄 PDF</a>
+            <a class="btn"
+            href="${pdf}"
+            target="_blank">
+            📄 PDF
+            </a>
 
-          <a class="btn" href="https://wa.me/?text=${encodeURIComponent(title + ' ' + link)}" target="_blank">📤 Share</a>
+            <a class="btn"
+            href="https://wa.me/?text=${encodeURIComponent(title + ' ' + link)}"
+            target="_blank">
+            📤 Share
+            </a>
 
         </div>
         `;
